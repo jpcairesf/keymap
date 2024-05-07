@@ -36,29 +36,25 @@ enum custom_keycodes {
 // For _QWERTY layer
 #define OSM_LCTL OSM(MOD_LCTL)
 #define OSM_ALT  OSM(MOD_LALT)
+#define OSM_AGR  OSM(MOD_RALT)
 #define OSL_FUN  OSL(_FUNC)
-#define GUI_BSP  GUI_T(KC_BSPC)
-#define LOW_SPC  LT(_LOWER, KC_SPC)
-#define RSE_ENT  LT(_RAISE, KC_ENT)
 #define OSM_SFT  OSM(MOD_LSFT)
-
-// For _LOWER layer
-#define C_CED    UC(0x00E7)
+#define TTLOWER  TT(_LOWER)
+#define TTRAISE  TT(_RAISE)
 
 // For _RAISE layer
 #define CTL_ESC  LCTL_T(KC_ESC)
-#define ACUTE    UC(0x00B4)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_QWERTY] = LAYOUT_split_3x6_3( \
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-        KC_ESC,   KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                     KC_Y    ,KC_U    ,KC_I    ,KC_O    ,KC_P    ,KC_DEL ,\
+        KC_TAB,   KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                     KC_Y    ,KC_U    ,KC_I    ,KC_O    ,KC_P    ,KC_LGUI,\
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-        KC_TAB,   KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                     KC_H    ,KC_J    ,KC_K    ,KC_L    ,KC_SCLN ,KC_HOME,\
+       OSM_SFT,   KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                     KC_H    ,KC_J    ,KC_K    ,KC_L    ,KC_SCLN ,OSL_FUN,\
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-       OSM_SFT,   KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                     KC_N    ,KC_M    ,KC_COMM ,KC_DOT  ,KC_SLSH ,KC_END ,\
+      OSM_LCTL,   KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                     KC_N    ,KC_M    ,KC_COMM ,KC_DOT  ,KC_SLSH ,OSM_AGR,\
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                        OSM_LCTL, OSM_ALT, LOW_SPC,    RSE_ENT,  GUI_BSP, OSL_FUN\
+                                         TTLOWER, OSM_ALT, KC_SPC,     KC_ENT,  KC_BSPC, TTRAISE \
                                       //`--------------------------'  `--------------------------'
   ),
 
@@ -66,22 +62,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       _______,KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                      KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, _______,\
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______,KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                         KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    _______,\
+      _______, KC_DEL, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_INS,  _______,\
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______,KC_BSLS, KC_PIPE, C_CED,   KC_LBRC, KC_LCBR,                      KC_RCBR, KC_RBRC, KC_COMM, KC_DOT,  KC_SLSH, _______,\
+      _______, KC_ESC, XXXXXXX, XXXXXXX, KC_RBRC, KC_RCBR,                      KC_BSLS, KC_PIPE, KC_COMM, KC_LBRC, KC_QUOT, _______,\
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_TRNS,  KC_TRNS, LOWER,    KC_TRNS, KC_TRNS, KC_COLON\
+                                         KC_TRNS,  KC_TRNS, LOWER,     KC_TRNS, KC_TRNS, KC_COLON\
                                       //`--------------------------'  `--------------------------'
   ),
 
 
   [_RAISE] = LAYOUT_split_3x6_3( \
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      _______, KC_QUOT, KC_DQUO, KC_GRV,  KC_TILD, ACUTE,                        KC_HOME, KC_PGDN, KC_PGUP, KC_END, KC_INS  ,_______,\
+      _______, KC_1   , KC_2   , KC_3   , KC_4   , KC_5   ,                     KC_6   , KC_7   ,  KC_8   , KC_9   , KC_0   ,_______,\
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, KC_UNDS, KC_MINS, KC_EQL,  KC_PLUS, XXXXXXX,                      KC_LEFT, KC_DOWN, KC_UP  , KC_RGHT,KC_COLON,_______,\
+      _______, KC_UNDS, KC_MINS, KC_EQL , KC_PLUS, XXXXXXX,                     KC_LEFT, KC_DOWN, KC_UP  , KC_RGHT, KC_GRV  ,_______,\
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, XXXXXXX, KC_CUT,  KC_COPY, KC_PSTE, XXXXXXX,                      XXXXXXX, XXXXXXX, KC_LT  , KC_GT  ,KC_QUES ,_______,\
+      _______, XXXXXXX, KC_CUT , KC_COPY, KC_PSTE, XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX ,_______,\
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           CTL_ESC, KC_TRNS, XXXXXXX,    RAISE  , KC_TRNS, KC_TRNS\
                                       //`--------------------------'  `--------------------------'
