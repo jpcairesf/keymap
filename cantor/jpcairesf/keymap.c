@@ -44,6 +44,7 @@ enum custom_keycodes {
 
 // For _RAISE layer
 #define CTL_ESC  LCTL_T(KC_ESC)
+#define RALT_Q   RALT(KC_W)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_QWERTY] = LAYOUT_split_3x6_3( \
@@ -62,9 +63,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       _______, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                     KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, _______,\
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_INS,  _______,\
+      _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      KC_HOME, KC_PGDN, KC_PGUP, KC_END , KC_INS ,_______,\
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______,  KC_ESC, XXXXXXX, KC_RCBR, KC_RBRC, KC_LPRN,                     KC_RPRN, KC_PIPE, KC_BSLS, KC_LBRC, KC_QUOT, _______,\
+      _______,  KC_ESC, KC_CAPS, KC_RCBR, KC_RBRC, KC_LPRN,                      KC_RPRN, KC_PIPE, KC_BSLS, KC_LBRC, KC_QUOT,_______,\
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                          KC_TRNS,  KC_TRNS, LOWER,     KC_TRNS, KC_TRNS, KC_COLON\
                                       //`--------------------------'  `--------------------------'
@@ -73,11 +74,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_RAISE] = LAYOUT_split_3x6_3( \
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      _______, KC_1   , KC_2   , KC_3   , KC_4   , KC_5   ,                     KC_6   , KC_7   ,  KC_8   , KC_9   , KC_0   ,_______,\
+      _______, KC_1   , KC_2   , KC_3   , KC_4   , KC_5   ,                     KC_6    , KC_7   ,  KC_8  , KC_9   , KC_0   ,_______,\
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, KC_UNDS, KC_MINS, KC_EQL , KC_PLUS, XXXXXXX,                     KC_LEFT, KC_DOWN, KC_UP  , KC_RGHT, KC_GRV  ,_______,\
+      _______, KC_UNDS, KC_MINS, KC_EQL , KC_PLUS, XXXXXXX,                     KC_LEFT , KC_DOWN, KC_UP  , KC_RGHT, KC_GRV ,_______,\
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, XXXXXXX, KC_CUT , KC_COPY, KC_PSTE, XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, KC_LBRC, KC_QUOT ,_______,\
+      _______, XXXXXXX, KC_CUT , KC_COPY, KC_PSTE, XXXXXXX,                     KC_NUBS , KC_PSLS, RALT_Q , KC_LBRC, KC_QUOT,_______,\
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           CTL_ESC, KC_TRNS, XXXXXXX,    RAISE  , KC_TRNS, KC_TRNS\
                                       //`--------------------------'  `--------------------------'
@@ -87,9 +88,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       _______, KC_F1  , KC_F2  , KC_F3   , KC_F4 ,  KC_F5 ,                     KC_F6   , KC_F7  , KC_F8  , KC_F9  , KC_F10 ,_______,\
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, KC_F11 , KC_F12 , XXXXXXX, XXXXXXX, XXXXXXX,                     KC_MUTE , KC_VOLD, KC_VOLU, KC_PSCR, XXXXXXX,_______,\
+      _______, KC_F11 , KC_F12 , XXXXXXX, KC_MS_U, XXXXXXX,                     KC_MUTE , KC_VOLD, KC_VOLU, KC_PSCR, KC_BTN1,_______,\
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, KC_CAPS, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                     XXXXXXX , KC_WH_U, KC_WH_D, XXXXXXX, XXXXXXX,XXXXXXX,\
+      _______, XXXXXXX, XXXXXXX, KC_MS_L, KC_MS_D, KC_MS_R,                     XXXXXXX , KC_WH_U, KC_WH_D, KC_BRID, KC_BRIU,XXXXXXX,\
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, FUNC   , XXXXXXX\
                                       //`--------------------------'  `--------------------------'
