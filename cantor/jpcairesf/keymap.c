@@ -65,7 +65,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      KC_HOME, KC_PGDN, KC_PGUP, KC_END , KC_INS ,_______,\
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______,  KC_ESC, KC_CAPS, KC_RCBR, KC_RBRC, KC_LPRN,                      KC_RPRN, KC_PIPE, KC_BSLS, KC_LBRC, KC_QUOT,_______,\
+      _______,  KC_ESC, KC_CAPS, KC_RCBR, KC_RBRC, KC_LPRN,                      KC_RPRN, KC_BSLS, KC_PIPE, KC_LBRC, KC_QUOT,_______,\
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                          KC_TRNS,  KC_TRNS, LOWER,     KC_TRNS, KC_TRNS, KC_COLON\
                                       //`--------------------------'  `--------------------------'
@@ -90,7 +90,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       _______, KC_F11 , KC_F12 , XXXXXXX, KC_MS_U, XXXXXXX,                     KC_MUTE , KC_VOLD, KC_VOLU, KC_PSCR, KC_BTN1,_______,\
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, XXXXXXX, XXXXXXX, KC_MS_L, KC_MS_D, KC_MS_R,                     XXXXXXX , KC_WH_U, KC_WH_D, KC_BRID, KC_BRIU,XXXXXXX,\
+      _______, XXXXXXX, XXXXXXX, KC_MS_L, KC_MS_D, KC_MS_R,                     XXXXXXX , KC_WH_D, KC_WH_U, KC_BRID, KC_BRIU,XXXXXXX,\
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, FUNC   , XXXXXXX\
                                       //`--------------------------'  `--------------------------'
