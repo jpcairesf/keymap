@@ -99,3 +99,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
        */
 #define ONESHOT_TIMEOUT                                                        \
     2000 /* Time (in ms) before the one shot key is released */
+
+// https://www.reddit.com/r/ErgoMechKeyboards/comments/1en7jp5/comment/lh44jb3
+#define SPLIT_WATCHDOG_ENABLE

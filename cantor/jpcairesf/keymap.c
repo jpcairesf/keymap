@@ -90,7 +90,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       _______, KC_F11 , KC_F12 , XXXXXXX, KC_MS_U, XXXXXXX,                     KC_MUTE , KC_VOLD, KC_VOLU, KC_PSCR, KC_BTN1,_______,\
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, XXXXXXX, XXXXXXX, KC_MS_L, KC_MS_D, KC_MS_R,                     XXXXXXX , KC_BRID, KC_BRIU, KC_WH_U, KC_WH_D,XXXXXXX,\
+      _______, RESET  , XXXXXXX, KC_MS_L, KC_MS_D, KC_MS_R,                     XXXXXXX , KC_BRID, KC_BRIU, KC_WH_U, KC_WH_D,XXXXXXX,\
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, FUNC   , XXXXXXX\
                                       //`--------------------------'  `--------------------------'
