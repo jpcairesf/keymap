@@ -3,26 +3,12 @@
 
 extern uint8_t is_master;
 
-// markstos defines
-
 enum custom_keycodes {
   QWERTY = SAFE_RANGE,
   LOWER,
   RAISE,
-  FUNC,
-  BACKLIT
+  FUNC
 };
-
-// enum combos {
-//   JK_ESC
-// };
-
-// const uint16_t PROGMEM jk_combo[] = {KC_J, KC_K, COMBO_END};
-
-// combo_t key_combos[COMBO_COUNT] = {
-//   // For Vim, put Escape on the home row
-//   [JK_ESC]    = COMBO(jk_combo, KC_ESC),
-// };
 
 // Each layer gets a name for readability, which is then used in the keymap matrix below.
 // The underscores don't mean anything - you can have a layer called STUFF or any other name.
@@ -36,7 +22,6 @@ enum custom_keycodes {
 // For _QWERTY layer
 #define OSM_LCTL OSM(MOD_LCTL)
 #define OSM_ALT  OSM(MOD_LALT)
-#define OSM_AGR  OSM(MOD_RALT)
 #define OSL_FUN  OSL(_FUNC)
 #define OSM_SFT  OSM(MOD_LSFT)
 #define TTLOWER  TT(_LOWER)
