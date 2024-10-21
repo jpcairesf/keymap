@@ -7,7 +7,8 @@ enum custom_keycodes {
   QWERTY = SAFE_RANGE,
   LOWER,
   RAISE,
-  FUNC
+  FUNC,
+  NUMS
 };
 
 // Each layer gets a name for readability, which is then used in the keymap matrix below.
@@ -18,15 +19,18 @@ enum custom_keycodes {
 #define _LOWER 1
 #define _RAISE 2
 #define _FUNC 3
+#define _NUMS 4
 
 // For _QWERTY layer
 #define OSM_LCTL OSM(MOD_LCTL)
 #define OSM_ALT  OSM(MOD_LALT)
 #define OSL_FUN  OSL(_FUNC)
 #define OSM_SFT  OSM(MOD_LSFT)
+#define S_SLSH   S(KC_SLSH)
 #define TTLOWER  TT(_LOWER)
 #define TTRAISE  TT(_RAISE)
-#define AGR_TAB  RALT_T(KC_TAB)
+// #define AGR_TAB  RALT_T(KC_TAB)
+#define NUMS_TAB LT(_NUMS,KC_TAB)
 
 // For _RAISE layer
 #define CTL_ESC  LCTL_T(KC_ESC)
@@ -35,7 +39,7 @@ enum custom_keycodes {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_QWERTY] = LAYOUT_split_3x6_3( \
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-       AGR_TAB,   KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                     KC_Y    ,KC_U    ,KC_I    ,KC_O    ,KC_P    ,KC_LGUI,\
+      NUMS_TAB,   KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                     KC_Y    ,KC_U    ,KC_I    ,KC_O    ,KC_P    ,KC_LGUI,\
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
        OSM_SFT,   KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                     KC_H    ,KC_J    ,KC_K    ,KC_L    ,KC_SCLN ,OSL_FUN,\
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
@@ -64,7 +68,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       _______, KC_UNDS, KC_MINS, KC_EQL , KC_PLUS, KC_ASTR,                     KC_LEFT , KC_DOWN, KC_UP  , KC_RGHT, KC_GRV ,_______,\
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, XXXXXXX, KC_CUT , KC_COPY, KC_PSTE, XXXXXXX,                     KC_NUBS , KC_PSLS, RALT_Q , KC_LBRC, KC_QUOT,_______,\
+      _______, XXXXXXX, KC_EXLM, XXXXXXX, S_SLSH , KC_AMPR,                     KC_NUBS , KC_PSLS, RALT_Q , KC_LBRC, KC_QUOT,_______,\
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           CTL_ESC, KC_TRNS, XXXXXXX,    RAISE  , KC_TRNS, KC_TRNS\
                                       //`--------------------------'  `--------------------------'
@@ -79,6 +83,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       _______, QK_BOOT, XXXXXXX, KC_MS_L, KC_MS_D, KC_MS_R,                     XXXXXXX , KC_BRID, KC_BRIU, KC_WH_U, KC_WH_D,XXXXXXX,\
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           DM_REC1, DM_RSTP, DM_PLY1,    SH_TOGG, FUNC   , KC_BTN2\
+                                      //`--------------------------'  `--------------------------'
+  ),
+
+  [_NUMS] = LAYOUT_split_3x6_3( \
+  //,-----------------------------------------------------.                    ,-----------------------------------------------------.
+      _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                     KC_7    , KC_8   , KC_9   , XXXXXXX, XXXXXXX,_______,\
+  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+      _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                     KC_4    , KC_5   , KC_6   , XXXXXXX, XXXXXXX,_______,\
+  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+      _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                     KC_1    , KC_2   , KC_3   , XXXXXXX, XXXXXXX,_______,\
+  //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
+                                          XXXXXXX, XXXXXXX, XXXXXXX,    KC_ENT , KC_0   , KC_BSPC\
                                       //`--------------------------'  `--------------------------'
   )
 };
